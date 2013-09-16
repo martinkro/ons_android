@@ -9,6 +9,8 @@
     <string name="download_version">.20110819</string>
     <string name="download_url">http://*.*/*/game1_pack.zip</string>
     <string name="password"></string>
+    
+    <string name="bg_content_description">background image for play with start</string>
 
     <string name="button_rclick">右键</string>
     <string name="button_lclick">左键</string>

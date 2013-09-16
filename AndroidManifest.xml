@@ -3,37 +3,32 @@
       package="cn.natdon.onscripter"
       android:versionCode="20111124"
       android:versionName="20111124">
-    <application 
+    <uses-sdk android:minSdkVersion="8" android:targetSdkVersion="17"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"></uses-permission>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+	<uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <application
+        android:allowBackup="true"
         android:label="@string/app_name" 
         android:icon="@drawable/icon">
-        <activity android:name=".start"
-                 
-                  android:screenOrientation="landscape"
-                  
-                  android:launchMode="singleInstance">
+        <activity android:name=".Start"                 
+        	android:screenOrientation="landscape"                  
+            android:launchMode="singleInstance">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<activity android:name=".ONScripter"
-                  
-                  android:screenOrientation="landscape"
-                  android:configChanges="orientation|keyboardHidden"
-                  android:launchMode="singleInstance">
-            
+		<activity android:name=".ONScripter"                  
+	        android:screenOrientation="landscape"
+	        android:configChanges="orientation|keyboardHidden"
+	        android:launchMode="singleInstance">            
         </activity>
-<activity android:name=".VideoPlayer"
-                  
-                  android:screenOrientation="landscape"
-                  android:configChanges="orientation|keyboardHidden"
-                  android:launchMode="singleInstance">
-            
+		<activity android:name=".VideoPlayer"                  
+	        android:screenOrientation="landscape"
+	        android:configChanges="orientation|keyboardHidden"
+	        android:launchMode="singleInstance">            
         </activity>
     </application>
-    <uses-sdk android:minSdkVersion="8" />
-    <uses-permission android:name="android.permission.WAKE_LOCK"></uses-permission>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
-<!--    <uses-permission android:name="android.permission.INTERNET"></uses-permission>-->
 </manifest> 

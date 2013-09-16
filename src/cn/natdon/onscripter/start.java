@@ -34,7 +34,7 @@ public class start extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-requestWindowFeature(Window.FEATURE_NO_TITLE);
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		setContentView(R.layout.start);
 		coin=new Random();
@@ -51,59 +51,46 @@ requestWindowFeature(Window.FEATURE_NO_TITLE);
 		
 		new Handler().postDelayed(new Runnable() {    
             @Override    
-            public void run() {    
+            public void run() {
             	if(x)
-		{
-            		end();
-        		timer = new Timer();
-        		timer.schedule(task, 1120, 1120);
-		}
-		else{
-			img = findViewById(R.id.ImageView01);
-        		img.startAnimation(new TVOffAnimation());
-        		timer = new Timer();
-        		timer.schedule(task, 300, 300);
-		}
+            	{
+            		playBackgroundAnimation();
+            		timer = new Timer();
+        			timer.schedule(task, 1120, 1120);
+            	}
+            	else{
+            		img = findViewById(R.id.image_view_background);
+            		img.startAnimation(new TVOffAnimation());
+            		timer = new Timer();
+            		timer.schedule(task, 300, 300);
+            	}
 
-            }  
-    }, 1500); 
+          }  
+		}, 1500); 
 		task = new TimerTask(){  
 		    public void run(){  
-		    //execute the task   
-		
-		//img.setBackgroundColor(color.background_dark);
-		Intent mainIntent = new Intent(start.this, ONScripter.class);  
-		if(extra != null){ 
-		mainIntent.putExtra("path",extra);
-		mainIntent.putExtra("mysetting",setting);
-		}
+		    	//execute the task  	
+		    	//img.setBackgroundColor(color.background_dark);
+		    	Intent mainIntent = new Intent(start.this, ONScripter.class);  
+		    	if(extra != null){ 
+		    		mainIntent.putExtra("path",extra);
+		    		mainIntent.putExtra("mysetting",setting);
+		    	}
                 start.this.startActivity(mainIntent);    
                 start.this.finish();   
-		//overridePendingTransition(Android.R.anim.fade_in,android.R.anim.fade_out);
+                //overridePendingTransition(Android.R.anim.fade_in,android.R.anim.fade_out);
                 timer.cancel();
 		    }  
-		};  
-		
-		
-	}
-	private void end()
+		}; 		
+	} // end of onCreate
+	
+	private void playBackgroundAnimation()
 	{
 		AnimationSet as= new AnimationSet(true);
 		AlphaAnimation me=new AlphaAnimation(1, 0);
 		me.setDuration(1200);//设置动画执行的时间（单位：毫秒）           
         as.addAnimation(me);//将AlphaAnimation对象添加到AnimationSet当中           
-        View img = findViewById(R.id.ImageView01);
+        View img = findViewById(R.id.image_view_background);
         img.startAnimation(as);
 	}
-	private void start()
-	{
-		AnimationSet as= new AnimationSet(true);
-		AlphaAnimation me=new AlphaAnimation(0, 1);
-		me.setDuration(2000);//设置动画执行的时间（单位：毫秒）           
-        as.addAnimation(me);//将AlphaAnimation对象添加到AnimationSet当中           
-        View img = findViewById(R.id.ImageView01);
-        img.startAnimation(as);
-	}
-
-	
 }
